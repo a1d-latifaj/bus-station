@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Address Autocomplete</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .suggestion-item {
+            cursor: pointer;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #d4d4d4;
+            padding: 5px;
+        }
+        .suggestion-item:hover {
+            background-color: #e9e9e9;
+        }
+        .suggestions-container {
+            position: absolute;
+            z-index: 1000;
+            width: calc(100% - 10px);
+            background: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="address-form">
+        <div style="position: relative; margin-bottom: 20px;">
+            <label for="street_address_1">Street Address 1:</label>
+            <input type="text" id="street_address_1" name="street_address_1" autocomplete="off">
+            <ul id="street_address_1-suggestions" class="suggestions-container"></ul>
+        </div>
+        
+        <div style="position: relative; margin-bottom: 20px;">
+            <label for="street_address_2">Street Address 2:</label>
+            <input type="text" id="street_address_2" name="street_address_2" autocomplete="off">
+            <ul id="street_address_2-suggestions" class="suggestions-container"></ul>
+        </div>
+
+        <div style="position: relative; margin-bottom: 20px;">
+            <label for="town">Town:</label>
+            <input type="text" id="town" name="town" autocomplete="off">
+            <ul id="town-suggestions" class="suggestions-container"></ul>
+        </div>
+
+        <div style="position: relative; margin-bottom: 20px;">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" autocomplete="off">
+            <ul id="city-suggestions" class="suggestions-container"></ul>
+        </div>
+
+        <div style="position: relative; margin-bottom: 20px;">
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" autocomplete="off">
+            <ul id="country-suggestions" class="suggestions-container"></ul>
+        </div>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            const fields = ['street_address_1', 'street_address_2', 'town', 'city', 'country'];
+
+            fields.forEach(field => {
+                setupAutocomplete(field);
+            });
+
+            function setupAutocomplete(fieldId) {
+                $(`#${fieldId}`).on('input', function() {
+                    const query = $(this).val();
+                    if (query.length < 3) return; // Start search after 2 characters
+
+                    $.ajax({
+                        url: `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`,
+                        type: 'GET',
+                        success: function(data) {
+                            const suggestionsBox = $(`#${fieldId}-suggestions`);
+                            suggestionsBox.empty(); // Clear previous suggestions
+                            data.forEach(function(item) {
+                                suggestionsBox.append(`<li class="suggestion-item">${item.display_name}</li>`);
+                            });
+
+                            $('.suggestion-item').click(function() {
+                                $(`#${fieldId}`).val($(this).text()); // Update input with selected item
+                                suggestionsBox.empty(); // Clear suggestions
+                            });
+                        }
+                    });
+                });
+
+                // Hide suggestions when clicking outside
+                $(document).click(function(e) {
+                    if (!$(e.target).closest(`#${fieldId}`).length) {
+                        $(`#${fieldId}-suggestions`).empty();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

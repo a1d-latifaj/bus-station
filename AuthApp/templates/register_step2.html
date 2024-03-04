@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Step 2</title>
+</head>
+<body>
+    <h2>Registration Step 2: Verify Account</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="verification_code">Enter Verification Code:</label>
+        <input type="text" id="verification_code" name="verification_code">
+        <button type="submit">Verify</button>
+    </form>
+</body>
+</html>

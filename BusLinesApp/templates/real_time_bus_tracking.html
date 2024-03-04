@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Bus Tracking</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 70%;
+        }
+
+        #sidebar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 30%;
+            background-color: #f0f0f0;
+            overflow-y: scroll;
+            padding: 20px;
+        }
+
+        #sidebar h2 {
+            margin-top: 0;
+        }
+
+        #station-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #station-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="sidebar">
+        <h2>Route Stations</h2>
+        <ul id="station-list"></ul>
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWlkbGF0aWZhaiIsImEiOiJjbHNoamd2ZTExajUzMmttaGIzNWcyYW5vIn0.mFt8U7wu4jJTf1r7HD5Edw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/navigation-day-v1',
+            center: [21.1655, 42.6639],
+            zoom: 9
+        });
+
+        const routeId = "{{ route_id }}";
+        map.on('load', function () {
+            fetch(`/bus/api/route_coordinates/${routeId}/`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok, status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const { startStation, stops, endStation, stopDistances } = data.busRoute;
+
+                    // Populating the sidebar
+                    // Populating the sidebar and calculating total distance
+                    const stationList = document.getElementById('station-list');
+                    let totalDistance = 0;
+
+                    // Displaying the distances from start station to each stop
+                    stops.forEach((stop, index) => {
+                        if (index === 0) {
+                            // Distance from start station to first stop
+                            const distanceToFirstStop = stopDistances[1].toFixed(4);
+                            totalDistance += parseFloat(stopDistances[1]);
+                            const firstStopListItem = document.createElement('li');
+                            firstStopListItem.innerHTML = `${startStation.name} > ${stop.name}: ${distanceToFirstStop} km`;
+                            stationList.appendChild(firstStopListItem);
+                        } else {
+                            // Distance between consecutive stops
+                            const distanceToNextStop = stopDistances[index + 1].toFixed(4);
+                            totalDistance += parseFloat(stopDistances[index + 1]);
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `${stops[index - 1].name} > ${stop.name}: ${distanceToNextStop} km`;
+                            stationList.appendChild(listItem);
+                        }
+                    });
+
+                    // Displaying the distance from each stop to the end station
+                    stops.forEach((stop, index) => {
+                        if (index === stops.length - 1) {
+                            // Distance from last stop to end station
+                            const distanceToEndStation = stopDistances[stops.length + 1].toFixed(4);
+                            totalDistance += parseFloat(stopDistances[stops.length + 1]);
+                            const lastStopListItem = document.createElement('li');
+                            lastStopListItem.innerHTML = `${stop.name} > ${endStation.name}: ${distanceToEndStation} km`;
+                            stationList.appendChild(lastStopListItem);
+                        }
+                    });
+
+                    // Display the total distance from start station to end station in the sidebar
+                    const totalDistanceFormatted = totalDistance.toFixed(4);
+                    const totalListItem = document.createElement('li');
+                    totalListItem.innerHTML = `<strong>Total Distance:</strong> ${totalDistanceFormatted} km`;
+                    stationList.appendChild(totalListItem);
+
+
+
+
+
+
+                    // Displaying the map route
+                    const coordinates = [
+                        [startStation.longitude, startStation.latitude],
+                        ...stops.map(stop => [stop.longitude, stop.latitude]),
+                        [endStation.longitude, endStation.latitude]
+                    ];
+
+                    const waypoints = coordinates.slice(1, -1).map(coord => coord.join(',')).join(';');
+                    const startCoordinates = [startStation.longitude, startStation.latitude];
+                    const endCoordinates = [endStation.longitude, endStation.latitude];
+                    const directionsUrl = `https://api.mapbox.com/directions/v5/mapbox/driving/${startCoordinates.join(',')};${waypoints};${endCoordinates.join(',')}?alternatives=true&geometries=geojson&language=en&overview=full&steps=true&access_token=${mapboxgl.accessToken}`;
+
+                    fetch(directionsUrl)
+                        .then(resp => resp.json())
+                        .then(data => {
+                            const route = data.routes[0].geometry;
+                            map.addSource('route', {
+                                'type': 'geojson',
+                                'lineMetrics': true,
+                                'data': {
+                                    'type': 'Feature',
+                                    'properties': {},
+                                    'geometry': route
+                                }
+                            });
+
+                            map.addLayer({
+                                'id': 'route',
+                                'type': 'line',
+                                'source': 'route',
+                                'layout': {},
+                                'paint': {
+                                    'line-color': 'red',
+                                    'line-width': 8,
+                                    'line-gradient': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['line-progress'],
+                                        0,
+                                        'blue',
+                                        0.1,
+                                        'royalblue',
+                                        0.3,
+                                        'cyan',
+                                        0.5,
+                                        'lime',
+                                        0.7,
+                                        'yellow',
+                                        1,
+                                        'red'
+                                    ]
+                                },
+                            });
+                            
+
+                            // Markers for stations
+                            new mapboxgl.Marker({ color: '#FF5733' })
+                                .setLngLat([startStation.longitude, startStation.latitude])
+                                .addTo(map);
+
+                            stops.forEach(stop => {
+                                new mapboxgl.Marker({ color: '#FFD700' })
+                                    .setLngLat([stop.longitude, stop.latitude])
+                                    .addTo(map);
+                            });
+
+                            new mapboxgl.Marker({ color: '#32CD32' })
+                                .setLngLat([endStation.longitude, endStation.latitude])
+                                .addTo(map);
+
+                            // Fitting map bounds
+                            const bounds = new mapboxgl.LngLatBounds();
+                            route.coordinates.forEach(coord => bounds.extend(coord));
+                            map.fitBounds(bounds, { padding: 20 });
+                        });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>

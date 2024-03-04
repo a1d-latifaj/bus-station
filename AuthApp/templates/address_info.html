@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Address</title>
+</head>
+<body>
+    <h2>Add Address</h2>
+    <form id="addressForm">
+        <input type="text" id="street" placeholder="Street" required><br>
+        <input type="text" id="city" placeholder="City" required><br>
+        <input type="text" id="zip" placeholder="Zip Code" required><br>
+        <button type="button" onclick="submitAddress()">Submit Address</button>
+    </form>
+
+    <script src="/static/js/csrf.js"></script>
+    <script>
+        function submitAddress() {
+            const addressData = {
+                street: document.getElementById('street').value,
+                city: document.getElementById('city').value,
+                zip: document.getElementById('zip').value,
+            };
+
+            fetch('/api/user/address/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+                body: JSON.stringify(addressData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Address added:', data);
+                // Redirect to registration complete or dashboard page
+                window.location.href = '/registration-complete-url';
+            })
+            .catch(error => {
+                console.error('Address addition error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

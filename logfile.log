@@ -1,0 +1,677 @@
+Watching for file changes with StatReloader
+Waiting for apps ready_event.
+Apps ready_event triggered. Sending autoreload_started signal.
+Watching dir C:\Users\aid-l\Videos\busstation\AuthApp\templates with glob **/*.
+Watching dir C:\Users\aid-l\Videos\busstation\locale with glob **/*.mo.
+Watching dir C:\Users\aid-l\Videos\busstation\AuthApp\locale with glob **/*.mo.
+(0.000) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.000) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+(0.000) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+File C:\Program Files\Python311\Lib\platform.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\datetime.py first seen with mtime 1707410149.8965452
+File C:\Users\aid-l\Videos\busstation\AuthApp\helpers.py first seen with mtime 1707492503.522601
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\creation.py first seen with mtime 1707410149.7928216
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\backends\__init__.py first seen with mtime 1707410150.036171
+File C:\Program Files\Python311\Lib\email\mime\text.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\apps.py first seen with mtime 1707410146.3765347
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\storage\__init__.py first seen with mtime 1707410148.1845462
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\conf\locale\__init__.py first seen with mtime 1707410144.680065
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\utils.py first seen with mtime 1707410148.182542
+File C:\Program Files\Python311\Lib\asyncio\exceptions.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\queues.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\validation.py first seen with mtime 1707410149.7988062
+File C:\Program Files\Python311\Lib\email\_policybase.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\html.py first seen with mtime 1707410150.091025
+File C:\Program Files\Python311\DLLs\_ssl.pyd first seen with mtime 1670382614.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\decorators\__init__.py first seen with mtime 1707410150.1239364
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\images.py first seen with mtime 1707410149.7130356
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\resolvers.py first seen with mtime 1707410150.0641031
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\middleware\csrf.py first seen with mtime 1707410150.019218
+File C:\Program Files\Python311\Lib\asyncio\format_helpers.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\smartif.py first seen with mtime 1707410150.034184
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\operations\special.py first seen with mtime 1707410149.8636322
+File C:\Program Files\Python311\Lib\importlib\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\tokens.py first seen with mtime 1707410146.3904922
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sites\shortcuts.py first seen with mtime 1707410149.3131251
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\backends.py first seen with mtime 1707410146.3775284
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\views\__init__.py first seen with mtime 1707410146.0633676
+File C:\Program Files\Python311\Lib\nturl2path.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\apps.py first seen with mtime 1707410146.8203435
+File C:\Program Files\Python311\Lib\_compat_pickle.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\wsgi.py first seen with mtime 1707410149.6781304
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\__init__.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\paginator.py first seen with mtime 1707410149.6711483
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\text.py first seen with mtime 1707410150.102993
+File C:\Program Files\Python311\Lib\http\cookies.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\generic\list.py first seen with mtime 1707410150.1369033
+File C:\Program Files\Python311\Lib\re\__init__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\DLLs\_decimal.pyd first seen with mtime 1670382602.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\templatetags\l10n.py first seen with mtime 1707410150.0481417
+File C:\Program Files\Python311\Lib\locale.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\mime\message.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\cache\__init__.py first seen with mtime 1707410149.6811242
+File C:\Program Files\Python311\Lib\__future__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\opcode.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sites\__init__.py first seen with mtime 1707410149.3011582
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\uploadhandler.py first seen with mtime 1707410149.7200172
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\window.py first seen with mtime 1707410149.9035277
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\termcolors.py first seen with mtime 1707410150.102107
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\generic\dates.py first seen with mtime 1707410150.1329124
+File C:\Program Files\Python311\DLLs\unicodedata.pyd first seen with mtime 1670382604.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\timesince.py first seen with mtime 1707410150.1039898
+File C:\Program Files\Python311\DLLs\_socket.pyd first seen with mtime 1670382602.0
+File C:\Program Files\Python311\Lib\importlib\_abc.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\client.py first seen with mtime 1707410149.8037927
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\autoreload.py first seen with mtime 1707410150.073074
+File C:\Program Files\Python311\Lib\keyword.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\apps\config.py first seen with mtime 1707410144.6631098
+File C:\Program Files\Python311\Lib\urllib\__init__.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\__init__.py first seen with mtime 1707410149.8845775
+File C:\Program Files\Python311\Lib\logging\config.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\shutil.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\DLLs\_ctypes.pyd first seen with mtime 1670382602.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\helpers.py first seen with mtime 1707410145.2744777
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\__init__.py first seen with mtime 1707410149.7808537
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\mail\utils.py first seen with mtime 1707410149.7319849
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\translation.py first seen with mtime 1707410149.700075
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\datastructures.py first seen with mtime 1707410149.907521
+File C:\Program Files\Python311\Lib\email\mime\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\validators.py first seen with mtime 1707410149.6771336
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\templatetags\tz.py first seen with mtime 1707410150.049137
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\others.py first seen with mtime 1707410143.532044
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\engine.py first seen with mtime 1707410150.0281942
+File C:\Program Files\Python311\Lib\wsgiref\__init__.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\compatibility\django_4_0.py first seen with mtime 1707410149.7040606
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\http\__init__.py first seen with mtime 1707410150.011238
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\apps.py first seen with mtime 1707410148.1795466
+File C:\Program Files\Python311\Lib\bisect.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loader_tags.py first seen with mtime 1707410150.0321958
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\middleware\cache.py first seen with mtime 1707410150.0162253
+File C:\Program Files\Python311\Lib\json\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\handlers\exception.py first seen with mtime 1707410149.728993
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\timezone.py first seen with mtime 1707410150.1039898
+File C:\Program Files\Python311\Lib\html\parser.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\asyncio.py first seen with mtime 1707410150.072076
+File C:\Program Files\Python311\Lib\mimetypes.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\schema.py first seen with mtime 1707410149.8087802
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\__init__.py first seen with mtime 1707410149.6288297
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\backends\base.py first seen with mtime 1707410150.0371685
+File C:\Program Files\Python311\Lib\http\__init__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\ast.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\storage\base.py first seen with mtime 1707410148.1855338
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\messages.py first seen with mtime 1707410149.6970794
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\choices.py first seen with mtime 1707410150.075068
+File C:\Program Files\Python311\Lib\encodings\__init__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\_encoded_words.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\cache\utils.py first seen with mtime 1707410149.6821184
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\exceptions.py first seen with mtime 1707410143.514092
+File C:\Program Files\Python311\Lib\glob.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loaders\__init__.py first seen with mtime 1707410150.0411584
+File C:\Program Files\Python311\Lib\email\encoders.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\feedparser.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\ssl.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\context.py first seen with mtime 1707410150.0252008
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\tokens.py first seen with mtime 1707410143.539031
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\aggregates.py first seen with mtime 1707410149.8656275
+File C:\Users\aid-l\Videos\busstation\AuthApp\apps.py first seen with mtime 1707411979.3891516
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\views\main.py first seen with mtime 1707410146.0653615
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\subqueries.py first seen with mtime 1707410149.9095106
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py first seen with mtime 1707410146.057383
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\defaultfilters.py first seen with mtime 1707410150.0271952
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\utils.py first seen with mtime 1707410149.783847
+File C:\Program Files\Python311\Lib\wsgiref\util.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\__init__.py first seen with mtime 1707410143.5101025
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\itercompat.py first seen with mtime 1707410150.0940166
+File C:\Program Files\Python311\Lib\asyncio\transports.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\handlers\wsgi.py first seen with mtime 1707410149.728993
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\translation\reloader.py first seen with mtime 1707410150.1079795
+File C:\Program Files\Python311\Lib\struct.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\AuthApp\forms.py first seen with mtime 1707491066.370778
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\locks.py first seen with mtime 1707410149.7140326
+File C:\Users\aid-l\Videos\busstation\busstation\settings.py first seen with mtime 1707493113.4552355
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\translation\trans_real.py first seen with mtime 1707410150.1119685
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\deprecation.py first seen with mtime 1707410150.0830462
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\proxy.py first seen with mtime 1707410149.8885665
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\enums.py first seen with mtime 1707410149.8726087
+File C:\Program Files\Python311\Lib\copy.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\lzma.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\constants.py first seen with mtime 1707410149.906527
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\constants\FLAG.py first seen with mtime 1707412245.2916741
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\query.py first seen with mtime 1707410149.9085138
+File C:\Program Files\Python311\Lib\logging\handlers.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\fields.py first seen with mtime 1707410149.9174907
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\signals.py first seen with mtime 1707410146.3894947
+File C:\Program Files\Python311\Lib\email\mime\base.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\lookups.py first seen with mtime 1707410149.8765976
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\security\__init__.py first seen with mtime 1707410149.7050564
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\__init__.py first seen with mtime 1707410148.860501
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loaders\filesystem.py first seen with mtime 1707410150.04415
+File C:\Program Files\Python311\DLLs\select.pyd first seen with mtime 1670382602.0
+File C:\Program Files\Python311\Lib\encodings\aliases.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\tempfile.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\re\_casefix.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\management\__init__.py first seen with mtime 1707410146.789426
+File C:\Program Files\Python311\DLLs\_zoneinfo.pyd first seen with mtime 1670382602.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\http.py first seen with mtime 1707410150.0920222
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\constants.py first seen with mtime 1707410148.1795466
+File C:\Users\aid-l\Videos\busstation\AuthApp\urls.py first seen with mtime 1707491909.942298
+File C:\Program Files\Python311\Lib\urllib\response.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\pprint.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\charset.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\mime\nonmultipart.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\runners.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\regex_helper.py first seen with mtime 1707410150.0990036
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\options.py first seen with mtime 1707410149.8785925
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\constants\CLIENT.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\exceptions.py first seen with mtime 1707410150.062102
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\urls.py first seen with mtime 1707410149.7010717
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\decorators.py first seen with mtime 1707410145.2665
+File C:\Program Files\Python311\Lib\string.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\backends\django.py first seen with mtime 1707410150.0381668
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\http\response.py first seen with mtime 1707410150.0142298
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\management\color.py first seen with mtime 1707410149.7429557
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\templatetags\cache.py first seen with mtime 1707410150.0461452
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\cache\backends\filebased.py first seen with mtime 1707410149.6900969
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\apps.py first seen with mtime 1707410145.2635086
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\asgiref\current_thread_executor.py first seen with mtime 1707410144.410704
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\cache\backends\locmem.py first seen with mtime 1707410149.6910942
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\constants.py first seen with mtime 1707410149.8696167
+File C:\Program Files\Python311\Lib\asyncio\protocols.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\query.py first seen with mtime 1707410149.879591
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loaders\base.py first seen with mtime 1707410150.043152
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\__init__.py first seen with mtime 1707410149.8446841
+File C:\Program Files\Python311\Lib\collections\abc.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\__init__.py first seen with mtime 1707410150.0591102
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\__init__.py first seen with mtime 1707410143.5300584
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\aligned_indent.py first seen with mtime 1707410143.5310478
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\http\request.py first seen with mtime 1707410150.0132341
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\decorators\csrf.py first seen with mtime 1707410150.127926
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\templatetags\__init__.py first seen with mtime 1707410146.056385
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\datastructures.py first seen with mtime 1707410150.0770621
+File C:\Program Files\Python311\Lib\reprlib.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\encoding.py first seen with mtime 1707410150.087049
+File C:\Program Files\Python311\Lib\secrets.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\forms.py first seen with mtime 1707410146.3845081
+File C:\Program Files\Python311\Lib\re\_parser.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\windows_events.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\ipv6.py first seen with mtime 1707410150.093019
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\generic\detail.py first seen with mtime 1707410150.1339133
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\utils.py first seen with mtime 1707410149.7898295
+File C:\Program Files\Python311\Lib\asyncio\selector_events.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\tree.py first seen with mtime 1707410150.1049871
+File C:\Program Files\Python311\Lib\email\parser.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\utils.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\dispatch\dispatcher.py first seen with mtime 1707410149.9125044
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\renderers.py first seen with mtime 1707410149.9234726
+File C:\Program Files\Python311\Lib\asyncio\base_futures.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\management\__init__.py first seen with mtime 1707410147.1974783
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\operations\__init__.py first seen with mtime 1707410149.8596432
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\module_loading.py first seen with mtime 1707410150.0970087
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\models.py first seen with mtime 1707410148.8684835
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\json.py first seen with mtime 1707410149.886572
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\files.py first seen with mtime 1707410149.6960804
+File C:\Program Files\Python311\Lib\getpass.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\library.py first seen with mtime 1707410150.0301876
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_urls.py first seen with mtime 1707410146.0593772
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\engine\__init__.py first seen with mtime 1707410143.5240655
+File C:\Program Files\Python311\Lib\asyncio\base_subprocess.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\forms.py first seen with mtime 1707410146.827325
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\middleware.py first seen with mtime 1707410148.8664958
+File C:\Program Files\Python311\Lib\pathlib.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\introspection.py first seen with mtime 1707410149.8067856
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\cli.py first seen with mtime 1707410143.512098
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\compatibility\__init__.py first seen with mtime 1707410149.702066
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\security\base.py first seen with mtime 1707410149.706054
+File C:\Program Files\Python311\DLLs\_asyncio.pyd first seen with mtime 1670382602.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\introspection.py first seen with mtime 1707410149.7958152
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\signals.py first seen with mtime 1707410149.881585
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py first seen with mtime 1707410149.8915591
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\registry.py first seen with mtime 1707410149.699074
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\functional.py first seen with mtime 1707410150.0900278
+File C:\Program Files\Python311\Lib\email\contentmanager.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\gettext.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\api.py first seen with mtime 1707410148.1785498
+File C:\Program Files\Python311\Lib\graphlib.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\async_checks.py first seen with mtime 1707410149.694086
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\asgiref\sync.py first seen with mtime 1707410144.4136875
+File C:\Program Files\Python311\Lib\asyncio\constants.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\__init__.py first seen with mtime 1707410149.9144971
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\inspect.py first seen with mtime 1707410150.093019
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\servers\basehttp.py first seen with mtime 1707410149.7798576
+File C:\Program Files\Python311\Lib\contextvars.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\right_margin.py first seen with mtime 1707410143.537031
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\query_utils.py first seen with mtime 1707410149.880588
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\client.py first seen with mtime 1707410149.7928216
+File C:\Program Files\Python311\Lib\email\mime\multipart.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\views.py first seen with mtime 1707410149.6398118
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\signals.py first seen with mtime 1707410149.6741407
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\admin.py first seen with mtime 1707410146.3755317
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\decorators\cache.py first seen with mtime 1707410150.1259317
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\formsets.py first seen with mtime 1707410149.920481
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\http\multipartparser.py first seen with mtime 1707410150.0122352
+File C:\Program Files\Python311\Lib\asyncio\locks.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\tasks.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\zoneinfo\__init__.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\email\_parseaddr.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\options.py first seen with mtime 1707410145.279464
+File C:\Program Files\Python311\Lib\pickle.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\storage\memory.py first seen with mtime 1707410149.7240057
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\engine\statement_splitter.py first seen with mtime 1707410143.528055
+File C:\Program Files\Python311\Lib\email\headerregistry.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\widgets.py first seen with mtime 1707410149.9254675
+File C:\Program Files\Python311\Lib\collections\__init__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\base_events.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\threads.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\schema.py first seen with mtime 1707410149.797809
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\connection.py first seen with mtime 1707410150.075068
+File C:\Program Files\Python311\Lib\decimal.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\json\decoder.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\serializers\__init__.py first seen with mtime 1707410149.7728755
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\base.py first seen with mtime 1707410150.0601082
+File C:\Program Files\Python311\Lib\queue.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\numberformat.py first seen with mtime 1707410150.0980058
+File C:\Program Files\Python311\Lib\selectors.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\signing.py first seen with mtime 1707410149.675137
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\__init__.py first seen with mtime 1707410150.0660915
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\admin.py first seen with mtime 1707410146.819347
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\templatetags\base.py first seen with mtime 1707410146.0613723
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\temp.py first seen with mtime 1707410149.717026
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\dispatch\__init__.py first seen with mtime 1707410149.9115047
+File C:\Program Files\Python311\Lib\ctypes\_endian.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\AuthApp\models.py first seen with mtime 1707491422.3839555
+File C:\Program Files\Python311\Lib\uuid.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\features.py first seen with mtime 1707410149.8057878
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\operations\models.py first seen with mtime 1707410149.8626354
+File C:\Program Files\Python311\DLLs\_overlapped.pyd first seen with mtime 1670382614.0
+File C:\Program Files\Python311\Lib\hmac.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\autoreload.py first seen with mtime 1707410150.0232065
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\asgiref\__init__.py first seen with mtime 1707410144.4087017
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\conf.py first seen with mtime 1707410150.061105
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\__init__.py first seen with mtime 1707410146.374535
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\times.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\conf\global_settings.py first seen with mtime 1707410144.6651053
+File C:\Program Files\Python311\Lib\socket.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\base_session.py first seen with mtime 1707410148.864491
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\finders.py first seen with mtime 1707410149.6308236
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\actions.py first seen with mtime 1707410145.2625115
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\operations\base.py first seen with mtime 1707410149.8606417
+File C:\Program Files\Python311\Lib\weakref.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\keywords.py first seen with mtime 1707410143.5170853
+File C:\Program Files\Python311\Lib\base64.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\asgiref\local.py first seen with mtime 1707410144.411692
+File C:\Program Files\Python311\Lib\concurrent\futures\_base.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\wsgiref\handlers.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\asyncio\log.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\__init__.py first seen with mtime 1707410149.7090507
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\exceptions.py first seen with mtime 1707410150.02919
+File C:\Program Files\Python311\Lib\email\base64mime.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\converters.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\ddl_references.py first seen with mtime 1707410149.785842
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\operations\fields.py first seen with mtime 1707410149.8616486
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\servers\__init__.py first seen with mtime 1707410149.7778623
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loader.py first seen with mtime 1707410150.0311847
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\models.py first seen with mtime 1707410149.922476
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\duration.py first seen with mtime 1707410150.086088
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\uploadedfile.py first seen with mtime 1707410149.7180297
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\debug.py first seen with mtime 1707410150.1209445
+File C:\Program Files\Python311\Lib\http\client.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\wsgiref\simple_server.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\http\cookie.py first seen with mtime 1707410150.011238
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\shortcuts.py first seen with mtime 1707410144.6611192
+File C:\Program Files\Python311\Lib\gzip.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\zoneinfo\_common.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\__init__.py first seen with mtime 1707410146.816356
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\_os.py first seen with mtime 1707410150.0700834
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\dateformat.py first seen with mtime 1707410150.079058
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\apps\registry.py first seen with mtime 1707410144.6631098
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\__init__.py first seen with mtime 1707410150.0232065
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\utils.py first seen with mtime 1707410149.6378047
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\serializers\python.py first seen with mtime 1707410149.775868
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\__init__.py first seen with mtime 1707410145.257526
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\crypto.py first seen with mtime 1707410150.0760648
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\__init__.py first seen with mtime 1707410144.6581244
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\engine\filter_stack.py first seen with mtime 1707410143.5250628
+File C:\Program Files\Python311\Lib\fnmatch.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\__init__.py first seen with mtime 1707410150.1189504
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\security\csrf.py first seen with mtime 1707410149.7070515
+File C:\Program Files\Python311\Lib\asyncio\staggered.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\__init__.py first seen with mtime 1707410149.904524
+File C:\Program Files\Python311\Lib\heapq.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\version.py first seen with mtime 1707410150.105985
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\checks.py first seen with mtime 1707410149.6308236
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\migration.py first seen with mtime 1707410149.8506687
+File C:\Program Files\Python311\Lib\contextlib.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\math.py first seen with mtime 1707410149.8975427
+File C:\Program Files\Python311\Lib\argparse.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\release.py first seen with mtime 1707412245.2705739
+File C:\Program Files\Python311\Lib\email\message.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\typing.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\email\policy.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\trsock.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\exceptions.py first seen with mtime 1707410149.8466785
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\operations.py first seen with mtime 1707410149.8077822
+File C:\Program Files\Python311\Lib\asyncio\subprocess.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\__init__.py first seen with mtime 1707410148.1775506
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\serializers\base.py first seen with mtime 1707410149.7738726
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\storage\__init__.py first seen with mtime 1707410149.7210152
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\operations.py first seen with mtime 1707410149.796814
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\models.py first seen with mtime 1707410146.3884974
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\utils.py first seen with mtime 1707410143.5230677
+File C:\Program Files\Python311\Lib\tokenize.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\concurrent\futures\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\reverse_related.py first seen with mtime 1707410149.8935528
+File C:\Users\aid-l\Videos\busstation\AuthApp\admin.py first seen with mtime 1707411979.3791897
+File C:\Program Files\Python311\Lib\json\encoder.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\generated.py first seen with mtime 1707410149.886572
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\reindent.py first seen with mtime 1707410143.5360355
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\backends\__init__.py first seen with mtime 1707410148.8734667
+File C:\Program Files\Python311\Lib\ipaddress.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\token.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\management\commands\runserver.py first seen with mtime 1707410149.65918
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\indexes.py first seen with mtime 1707410149.8746033
+File C:\Program Files\Python311\Lib\urllib\request.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\defaulttags.py first seen with mtime 1707410150.0281942
+File C:\Program Files\Python311\Lib\datetime.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\middleware.py first seen with mtime 1707410146.386503
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\expressions.py first seen with mtime 1707410149.8736067
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\sql.py first seen with mtime 1707410143.5210729
+File C:\Program Files\Python311\Lib\encodings\cp1252.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\inspect.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\email\quoprimime.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\management\__init__.py first seen with mtime 1707410149.7409613
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\transaction.py first seen with mtime 1707410149.7818515
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\__init__.py first seen with mtime 1707410149.8646328
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\management\commands\__init__.py first seen with mtime 1707410149.6531956
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\utils.py first seen with mtime 1707410150.0352292
+File C:\Program Files\Python311\Lib\hashlib.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\AuthApp\views.py first seen with mtime 1707492513.505137
+File C:\Program Files\Python311\Lib\html\entities.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\functools.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\calendar.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\timeouts.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\text.py first seen with mtime 1707410149.9025292
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\generic\__init__.py first seen with mtime 1707410150.131915
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\base.py first seen with mtime 1707410149.7100434
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\models.py first seen with mtime 1707410146.8283226
+File C:\Program Files\Python311\Lib\operator.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\storage\mixins.py first seen with mtime 1707410149.7250051
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\apps.py first seen with mtime 1707410149.629828
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\mail\message.py first seen with mtime 1707410149.7309892
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\decorators.py first seen with mtime 1707410150.082049
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\lexer.py first seen with mtime 1707410143.5190785
+File C:\Program Files\Python311\Lib\threading.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\__init__.py first seen with mtime 1707410149.6651673
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\conf\__init__.py first seen with mtime 1707410144.6641073
+File C:\Program Files\Python311\DLLs\_queue.pyd first seen with mtime 1670382602.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\decorators\common.py first seen with mtime 1707410150.126929
+File C:\Program Files\Python311\Lib\asyncio\streams.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\management\commands\runserver.py first seen with mtime 1707410149.7619045
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\storage\handler.py first seen with mtime 1707410149.7240057
+File C:\Program Files\Python311\Lib\re\_compiler.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\AuthApp\__init__.py first seen with mtime 1707411979.413086
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\creation.py first seen with mtime 1707410149.8057878
+File C:\Program Files\Python311\Lib\ctypes\wintypes.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\dataclasses.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\storage\filesystem.py first seen with mtime 1707410149.7230093
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\__init__.py first seen with mtime 1707410149.694086
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\base.py first seen with mtime 1707410150.0242066
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\management\commands\__init__.py first seen with mtime 1707410149.745948
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\validation.py first seen with mtime 1707410149.8097763
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\constants\FIELD_TYPE.py first seen with mtime 1707412245.2896788
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\fields.py first seen with mtime 1707410146.8243365
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\signals.py first seen with mtime 1707410149.7888327
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\safestring.py first seen with mtime 1707410150.1000085
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\mail\__init__.py first seen with mtime 1707410149.7299907
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\management\__init__.py first seen with mtime 1707410149.651201
+File C:\Program Files\Python311\Lib\bz2.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_modify.py first seen with mtime 1707410146.0583813
+File C:\Program Files\Python311\Lib\json\scanner.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\cache\backends\__init__.py first seen with mtime 1707410149.6831157
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\where.py first seen with mtime 1707410149.910515
+File C:\Program Files\Python311\Lib\linecache.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\__init__.py first seen with mtime 1707410149.8028083
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\middleware\__init__.py first seen with mtime 1707410150.0142298
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\__init__.py first seen with mtime 1707410149.790828
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\hashers.py first seen with mtime 1707410146.386503
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\utils.py first seen with mtime 1707410149.8566535
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\response.py first seen with mtime 1707410150.0331798
+File C:\Program Files\Python311\Lib\html\__init__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\_weakrefset.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\manage.py first seen with mtime 1707411963.85509
+File C:\Program Files\Python311\Lib\asyncio\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\utils.py first seen with mtime 1707410149.8825817
+File C:\Program Files\Python311\Lib\asyncio\futures.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\utils.py first seen with mtime 1707410150.0650978
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\boundfield.py first seen with mtime 1707410149.9154947
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loaders\app_directories.py first seen with mtime 1707410150.0421553
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\views\autocomplete.py first seen with mtime 1707410146.0643637
+File C:\Program Files\Python311\Lib\zoneinfo\_tzpath.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\copyreg.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\serializers\json.py first seen with mtime 1707410149.7738726
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\tokens.py first seen with mtime 1707410143.5210729
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\storage\base.py first seen with mtime 1707410149.7220116
+File C:\Program Files\Python311\Lib\numbers.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\filters.py first seen with mtime 1707410145.2704875
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\__init__.py first seen with mtime 1707410149.8945498
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\engine\grouping.py first seen with mtime 1707410143.5260599
+File C:\Program Files\Python311\Lib\random.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py first seen with mtime 1707410148.874464
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\exceptions.py first seen with mtime 1707410145.2684934
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\_virtualenv.py first seen with mtime 1707410101.996866
+File C:\Program Files\Python311\Lib\difflib.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\model_checks.py first seen with mtime 1707410149.698077
+File C:\Program Files\Python311\Lib\asyncio\base_tasks.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\i18n.py first seen with mtime 1707410150.1219425
+File C:\Program Files\Python311\Lib\signal.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\apps.py first seen with mtime 1707410148.8614979
+File C:\Program Files\Python311\Lib\types.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\email\_header_value_parser.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sites\requests.py first seen with mtime 1707410149.3121283
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\management\base.py first seen with mtime 1707410149.741958
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\hashable.py first seen with mtime 1707410150.0900278
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\dateparse.py first seen with mtime 1707410150.080054
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\base.py first seen with mtime 1707410149.8666246
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\constraints.py first seen with mtime 1707410149.870615
+File C:\Program Files\Python311\Lib\asyncio\mixins.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\urls\converters.py first seen with mtime 1707410150.062102
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\loaders\cached.py first seen with mtime 1707410150.043152
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\templatetags\i18n.py first seen with mtime 1707410150.0471418
+File C:\Program Files\Python311\Lib\dis.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\__init__.py first seen with mtime 1707410145.2605183
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\files.py first seen with mtime 1707410149.885579
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\generic\base.py first seen with mtime 1707410150.131915
+File C:\Program Files\Python311\Lib\asyncio\windows_utils.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\warnings.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\_compression.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\features.py first seen with mtime 1707410149.7938192
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\templatetags\log.py first seen with mtime 1707410146.0623696
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\deconstruct.py first seen with mtime 1707410150.082049
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\middleware\security.py first seen with mtime 1707410150.0222087
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\mixins.py first seen with mtime 1707410149.8995466
+File C:\Program Files\Python311\Lib\concurrent\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\utils.py first seen with mtime 1707410149.9244702
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\static.py first seen with mtime 1707410150.1229393
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\handlers\__init__.py first seen with mtime 1707410149.726001
+File C:\Program Files\Python311\Lib\concurrent\futures\thread.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\re\_constants.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\views.py first seen with mtime 1707410146.8323116
+File C:\Program Files\Python311\DLLs\_bz2.pyd first seen with mtime 1670382602.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\manager.py first seen with mtime 1707410149.8775952
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\database.py first seen with mtime 1707410149.6960804
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\templatetags\static.py first seen with mtime 1707410150.0481417
+File C:\Program Files\Python311\Lib\encodings\utf_8.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\widgets.py first seen with mtime 1707410145.285447
+File C:\Program Files\Python311\DLLs\_uuid.pyd first seen with mtime 1670382602.0
+File C:\Program Files\Python311\Lib\ctypes\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\mixins.py first seen with mtime 1707410149.8875697
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\related_lookups.py first seen with mtime 1707410149.8925557
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\translation\__init__.py first seen with mtime 1707410150.106982
+File C:\Program Files\Python311\Lib\wsgiref\headers.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\asyncio\proactor_events.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\apps\__init__.py first seen with mtime 1707410144.6621158
+File C:\Program Files\Python311\Lib\sysconfig.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\enum.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\logging\__init__.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\generic\edit.py first seen with mtime 1707410150.135906
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\security\sessions.py first seen with mtime 1707410149.7070515
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\move.py first seen with mtime 1707410149.71503
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\deletion.py first seen with mtime 1707410149.871611
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\cache\backends\base.py first seen with mtime 1707410149.6851106
+File C:\Program Files\Python311\Lib\urllib\error.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\staticfiles\handlers.py first seen with mtime 1707410149.6318212
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\_distutils_hack\__init__.py first seen with mtime 1707410105.331035
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\base.py first seen with mtime 1707410149.8037927
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\base\base.py first seen with mtime 1707410149.7918248
+File C:\Program Files\Python311\Lib\http\server.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\csrf.py first seen with mtime 1707410150.1199472
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\state.py first seen with mtime 1707410149.8556638
+File C:\Program Files\Python311\Lib\email\generator.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\textwrap.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\fields\related.py first seen with mtime 1707410149.8905616
+File C:\Program Files\Python311\Lib\socketserver.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\DLLs\_hashlib.pyd first seen with mtime 1670382602.0
+File C:\Program Files\Python311\Lib\_markupbase.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\utils.py first seen with mtime 1707410145.2834556
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\cache.py first seen with mtime 1707410150.0740714
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\templatetags\__init__.py first seen with mtime 1707410150.0451474
+File C:\Users\aid-l\Videos\busstation\busstation\urls.py first seen with mtime 1707491217.8826137
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\checks.py first seen with mtime 1707410145.2655041
+File C:\Program Files\Python311\Lib\urllib\parse.py first seen with mtime 1670382572.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\base_user.py first seen with mtime 1707410146.3785243
+File C:\Program Files\Python311\Lib\asyncio\coroutines.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\constants\__init__.py first seen with mtime 1707412245.2916741
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\_exceptions.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\models.py first seen with mtime 1707410145.2774682
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\dates.py first seen with mtime 1707410150.0810535
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\filters\output.py first seen with mtime 1707410143.5340402
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\checks.py first seen with mtime 1707410146.3795278
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\_mysql.cp311-win_amd64.pyd first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\formats.py first seen with mtime 1707410150.0890322
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\templates.py first seen with mtime 1707410149.699074
+File C:\Program Files\Python311\Lib\pkgutil.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\password_validation.py first seen with mtime 1707410146.3884974
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\files\utils.py first seen with mtime 1707410149.7210152
+File C:\Program Files\Python311\Lib\email\errors.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\handlers\asgi.py first seen with mtime 1707410149.7269986
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\functions\comparison.py first seen with mtime 1707410149.8955605
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\validators.py first seen with mtime 1707410146.3914928
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\__init__.py first seen with mtime 1707410149.7848437
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\forms\forms.py first seen with mtime 1707410149.9194841
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\log.py first seen with mtime 1707410150.0960114
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\checks\caches.py first seen with mtime 1707410149.6950834
+File C:\Program Files\Python311\Lib\email\__init__.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\subprocess.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\traceback.py first seen with mtime 1670382572.0
+File C:\Program Files\Python311\Lib\asyncio\sslproto.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\exceptions.py first seen with mtime 1707410149.6691537
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\core\handlers\base.py first seen with mtime 1707410149.7280037
+File C:\Program Files\Python311\Lib\asyncio\events.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\utils\lorem_ipsum.py first seen with mtime 1707410150.0970087
+File C:\Program Files\Python311\Lib\email\header.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\checks.py first seen with mtime 1707410146.8223388
+File C:\Program Files\Python311\Lib\quopri.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\DLLs\_lzma.pyd first seen with mtime 1670382614.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\sites.py first seen with mtime 1707410145.2804623
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\sqlparse\formatter.py first seen with mtime 1707410143.5160873
+File C:\Program Files\Python311\Lib\email\iterators.py first seen with mtime 1670382570.0
+File C:\Program Files\Python311\Lib\asyncio\taskgroups.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\busstation\__init__.py first seen with mtime 1707411963.9040012
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\decorators\debug.py first seen with mtime 1707410150.1289232
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\E-Mail first seen with mtime 1707490100.7089627
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\register_complete.html first seen with mtime 1707491184.057623
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\register_step1.html first seen with mtime 1707491152.453332
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\register_step2.html first seen with mtime 1707491607.778294
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\register_step3.html first seen with mtime 1707491162.8210895
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\register_step4.html first seen with mtime 1707491167.3035126
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\verification_failed.html first seen with mtime 1707491962.8277733
+File C:\Users\aid-l\Videos\busstation\AuthApp\templates\E-Mail\verification_email.html first seen with mtime 1707490101.5479794
+(0.000) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-02-09 15:38:36.190288' AND `django_session`.`session_key` = 'v2t6x9dv77g8grqe4b5ou9b6zuvoirqo') LIMIT 21; args=('2024-02-09 15:38:36.190288', 'v2t6x9dv77g8grqe4b5ou9b6zuvoirqo'); alias=default
+"POST /register/step2/ HTTP/1.1" 302 0
+"GET /verification-failed/ HTTP/1.1" 200 273
+File C:\Users\aid-l\Videos\busstation\AuthApp\migrations\__init__.py first seen with mtime 1707411979.4150927
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\storage\fallback.py first seen with mtime 1707410148.1875236
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\migrations\0001_initial.py first seen with mtime 1707410145.8609116
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\cursors.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0009_alter_user_last_name_max_length.py first seen with mtime 1707410146.806382
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\migrations\0001_initial.py first seen with mtime 1707410147.2004685
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\context_processors.py first seen with mtime 1707410146.3815186
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\models\sql\compiler.py first seen with mtime 1707410149.9055214
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0012_alter_user_first_name_max_length.py first seen with mtime 1707410146.8103712
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\template\context_processors.py first seen with mtime 1707410150.0261977
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\backends\db.py first seen with mtime 1707410148.879453
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\migrations\__init__.py first seen with mtime 1707410149.2941775
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\serializers.py first seen with mtime 1707410148.8714757
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\context_processors.py first seen with mtime 1707410148.1805446
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\_binary.py first seen with mtime 1707489432.6008606
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0001_initial.py first seen with mtime 1707410146.7944145
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\backends\mysql\compiler.py first seen with mtime 1707410149.8047931
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\TiffTags.py first seen with mtime 1707489432.597662
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\__init__.py first seen with mtime 1707489432.6008606
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\recorder.py first seen with mtime 1707410149.853661
+File C:\Users\aid-l\Videos\busstation\busstation\wsgi.py first seen with mtime 1707411963.9030025
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\middleware\common.py first seen with mtime 1707410150.0182202
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\Image.py first seen with mtime 1707489432.5240448
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0004_alter_user_username_opts.py first seen with mtime 1707410146.7993994
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\conf\urls\__init__.py first seen with mtime 1707410145.252535
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\_version.py first seen with mtime 1707489432.6513472
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\__init__.py first seen with mtime 1707410146.8113682
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\storage\cookie.py first seen with mtime 1707410148.1865268
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0010_alter_group_name_max_length.py first seen with mtime 1707410146.807379
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0011_update_proxy_permissions.py first seen with mtime 1707410146.8093748
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\MySQLdb\connections.py first seen with mtime 1707412245.2705739
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\_util.py first seen with mtime 1707489432.6357436
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\migrations\0002_remove_content_type_name.py first seen with mtime 1707410147.202464
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\migrations\__init__.py first seen with mtime 1707410145.8638997
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\contenttypes\migrations\__init__.py first seen with mtime 1707410147.2034628
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\exceptions.py first seen with mtime 1707410148.8654864
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0008_alter_user_username_max_length.py first seen with mtime 1707410146.8053844
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\migrations\0003_logentry_add_action_flag_choices.py first seen with mtime 1707410145.8629036
+File C:\Users\aid-l\Videos\busstation\AuthApp\migrations\0002_verificationtoken.py first seen with mtime 1707491431.4730306
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\loader.py first seen with mtime 1707410149.8496702
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\graph.py first seen with mtime 1707410149.8486726
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\admin\migrations\0002_logentry_remove_auto_add.py first seen with mtime 1707410145.8619072
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0005_alter_user_last_login_null.py first seen with mtime 1707410146.8004034
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\middleware.py first seen with mtime 1707410148.1815417
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0003_alter_user_email_max_length.py first seen with mtime 1707410146.797406
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\ImageMode.py first seen with mtime 1707489432.5369594
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\_imaging.cp311-win_amd64.pyd first seen with mtime 1707489432.620089
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\messages\storage\session.py first seen with mtime 1707410148.1885238
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\sessions\migrations\0001_initial.py first seen with mtime 1707410149.2931821
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\ExifTags.py first seen with mtime 1707489432.5001135
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0007_alter_validators_add_error_messages.py first seen with mtime 1707410146.8033903
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\db\migrations\executor.py first seen with mtime 1707410149.8486726
+File C:\Program Files\Python311\Lib\encodings\idna.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\middleware\clickjacking.py first seen with mtime 1707410150.0172236
+File C:\Users\aid-l\Videos\busstation\AuthApp\migrations\0001_initial.py first seen with mtime 1707490701.744686
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0002_alter_permission_name_max_length.py first seen with mtime 1707410146.7954102
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\PIL\_typing.py first seen with mtime 1707489432.6357436
+File C:\Program Files\Python311\Lib\stringprep.py first seen with mtime 1670382570.0
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\views\defaults.py first seen with mtime 1707410150.1219425
+File C:\Users\aid-l\Videos\busstation\venv\Lib\site-packages\django\contrib\auth\migrations\0006_require_contenttypes_0002.py first seen with mtime 1707410146.8023918
+File C:\Users\aid-l\Videos\busstation\busstation\settings.py previous mtime: 1707493113.4552355, current mtime: 1707493319.1356359
+C:\Users\aid-l\Videos\busstation\busstation\settings.py notified as changed. Signal results: [(<function template_changed at 0x000001FA4A200F40>, None), (<function translation_file_changed at 0x000001FA4B348FE0>, None)].
+C:\Users\aid-l\Videos\busstation\busstation\settings.py changed, reloading.

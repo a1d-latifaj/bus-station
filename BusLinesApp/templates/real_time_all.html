@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Bus Tracking</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWlkbGF0aWZhaiIsImEiOiJjbHNoamd2ZTExajUzMmttaGIzNWcyYW5vIn0.mFt8U7wu4jJTf1r7HD5Edw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/navigation-night-v1',
+            center: [21.1655, 42.6639],
+            zoom: 9
+        });
+
+        map.on('load', function () {
+            fetch(`/bus/api/all_routes_coordinates/`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok, status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    data.busRoutes.forEach(route => {
+                        const { id, startStation, stops, endStation } = route;
+                        const coordinates = [
+                            [startStation.longitude, startStation.latitude],
+                            ...stops.map(stop => [stop.longitude, stop.latitude]),
+                            [endStation.longitude, endStation.latitude]
+                        ];
+
+                        const waypoints = coordinates.slice(1, -1).map(coord => coord.join(',')).join(';');
+                        const startCoordinates = [startStation.longitude, startStation.latitude];
+                        const endCoordinates = [endStation.longitude, endStation.latitude];
+                        const directionsUrl = `https://api.mapbox.com/directions/v5/mapbox/driving/${startCoordinates.join(',')};${waypoints};${endCoordinates.join(',')}?alternatives=true&geometries=geojson&language=en&overview=full&steps=true&access_token=${mapboxgl.accessToken}`;
+
+                        fetch(directionsUrl)
+                            .then(resp => resp.json())
+                            .then(data => {
+                                const route = data.routes[0].geometry;
+                                map.addSource(`route-${id}`, {
+                                    'type': 'geojson',
+                                    'data': {
+                                        'type': 'Feature',
+                                        'properties': {},
+                                        'geometry': route
+                                    }
+                                });
+
+                                map.addLayer({
+                                    'id': `route-${id}`,
+                                    'type': 'line',
+                                    'source': `route-${id}`,
+                                    'layout': {},
+                                    'paint': {
+                                        'line-color': '#b91c1c',
+                                        'line-width': 12,
+                                        'line-opacity': 0.5 // Shtoni transparencën e linjës
+                                    }
+                                });
+
+                                // MARK: për stacionin fillestar
+                                new mapboxgl.Marker({ color: '#FF5733' })
+                                    .setLngLat([startStation.longitude, startStation.latitude])
+                                    .addTo(map);
+
+                                // MARK: për stacionet ndalesë
+                                stops.forEach(stop => {
+                                    new mapboxgl.Marker({ color: '#FFD700' })
+                                        .setLngLat([stop.longitude, stop.latitude])
+                                        .addTo(map);
+                                });
+
+                                // MARK: për stacionin përfundimtar
+                                new mapboxgl.Marker({ color: '#32CD32' })
+                                    .setLngLat([endStation.longitude, endStation.latitude])
+                                    .addTo(map);
+
+                                const bounds = new mapboxgl.LngLatBounds();
+                                route.coordinates.forEach(coord => bounds.extend(coord));
+                                map.fitBounds(bounds, { padding: 20 });
+                            });
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+</body>
+
+</html>

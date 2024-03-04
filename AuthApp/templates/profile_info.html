@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile Update</title>
+</head>
+<body>
+    <h2>Update Profile</h2>
+    <form id="profileForm" enctype="multipart/form-data">
+        <label for="profile_picture">Profile Picture:</label><br>
+        <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br>
+        <!-- Add other fields here as needed -->
+        <button type="button" onclick="updateProfile()">Update Profile</button>
+    </form>
+
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function updateProfile() {
+            const formData = new FormData(document.getElementById('profileForm'));
+
+            fetch('/api/user/profile/', {  // Adjust the URL to match your API endpoint
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+                body: formData,
+                credentials: 'same-origin'  // Necessary for including cookies with the request
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Handle success, such as displaying a success message or redirecting
+                window.location.href = '/address-info/'; // Redirect to add address page
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Handle errors, such as displaying an error message to the user
+            });
+        }
+
+        // Prevent the default form submission behavior
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            updateProfile();
+        });
+    </script>
+</body>
+</html>

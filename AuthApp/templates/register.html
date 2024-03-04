@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm">
+        <input type="email" id="email" name="email" placeholder="Email" required><br>
+        <input type="text" id="first_name" name="first_name" placeholder="First Name" required><br>
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required><br>
+        <input type="password" id="password1" name="password1" placeholder="Password" required><br>
+        <input type="password" id="password2" name="password2" placeholder="Confirm Password" required><br>
+        <button type="button" onclick="submitForm()">Register</button>
+    </form>
+
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function submitForm() {
+            const formData = {
+                email: document.getElementById('email').value,
+                first_name: document.getElementById('first_name').value,
+                last_name: document.getElementById('last_name').value,
+                password1: document.getElementById('password1').value,
+                password2: document.getElementById('password2').value
+            };
+
+            fetch('/api/register/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token in request header
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Redirect or handle next step here, for example:
+                window.location.href = '/verify-email/';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Prevent the default form submission to attach the CSRF token
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitForm();
+        });
+    </script>
+</body>
+</html>

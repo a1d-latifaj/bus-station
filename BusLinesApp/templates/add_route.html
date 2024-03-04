@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Route</title>
+</head>
+
+<body>
+    <h1>Add Route</h1>
+    <form id="add-route-form" method="post">
+        {% csrf_token %}
+        <label for="bus_id">Bus:</label>
+        <select id="bus_id" name="bus_id" required>
+            {% for bus in buses %}
+            <option value="{{ bus.id }}">{{ bus }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="start_station_id">Start Station:</label>
+        <select id="start_station_id" name="start_station_id" required>
+            {% for station in stations %}
+            <option value="{{ station.id }}">{{ station }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="end_station_id">End Station:</label>
+        <select id="end_station_id" name="end_station_id" required>
+            {% for station in stations %}
+            <option value="{{ station.id }}">{{ station }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="start_time">Start Time:</label>
+        <input type="datetime-local" id="start_time" name="start_time" required><br><br>
+        <label for="end_time">End Time:</label>
+        <input type="datetime-local" id="end_time" name="end_time"><br><br>
+        <div id="stops-container">
+            <label>Stops:</label><br>
+            <div id="stops">
+                <!-- Dynamic stops will be added here -->
+            </div>
+            <button type="button" id="add-stop-btn">Add Stop</button>
+        </div><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('add-route-form');
+            const stopsContainer = document.getElementById('stops-container');
+            const addStopBtn = document.getElementById('add-stop-btn');
+
+            addStopBtn.addEventListener('click', function () {
+                const stopTemplate = `
+                    <div>
+                        <select name="station[]" required>
+                            {% for station in stations %}
+                            <option value="{{ station.id }}">{{ station }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="datetime-local" name="arrival_time[]" required>
+                        <button type="button" class="remove-stop-btn">Remove</button>
+                    </div>
+                `;
+                const stopDiv = document.createElement('div');
+                stopDiv.innerHTML = stopTemplate;
+                stopsContainer.querySelector('#stops').appendChild(stopDiv);
+            });
+
+            stopsContainer.addEventListener('click', function (event) {
+                if (event.target.classList.contains('remove-stop-btn')) {
+                    event.target.parentElement.remove();
+                }
+            });
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const response = await fetch('/bus/add-route/', {
+                    method: 'POST',
+                    body: formData
+                });
+                const responseData = await response.json();
+                if (response.ok) {
+                    document.getElementById('response').textContent = 'Route added successfully. Route ID: ' + responseData.route_id;
+                } else {
+                    document.getElementById('response').textContent = 'Error: ' + responseData.error;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

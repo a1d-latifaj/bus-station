@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Bus Tracking</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="status-message"></div>
+
+    <script>
+        mapboxgl.accessToken = '{{ mapbox_access_token }}'; // Use the Mapbox access token from the context
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [21.390573940382207, 42.49140315960131],
+            zoom: 12
+        });
+
+        const busMarkers = {};
+
+        const websocket = new WebSocket('ws://localhost/ws/bus/');
+
+        websocket.onopen = function () {
+            document.getElementById('status-message').innerText = 'WebSocket connection established successfully!';
+        };
+
+        websocket.onmessage = function (event) {
+            const data = JSON.parse(event.data);
+            updateBusLocation(data.busLocation);
+        };
+
+        function updateBusLocation(busLocation) {
+            const { busNumber, latitude, longitude } = busLocation;
+
+            // Update the map center to the bus location
+            map.setCenter([longitude, latitude]);
+
+            // Remove previous marker if exists
+            if (busMarkers[busNumber]) {
+                busMarkers[busNumber].remove();
+            }
+
+            // Add a marker at the bus location
+            const busMarker = new mapboxgl.Marker({ color: '#FF5733' })
+                .setLngLat([longitude, latitude])
+                .addTo(map);
+
+            const popup = new mapboxgl.Popup({ offset: 25 })
+                .setHTML(`<h3>Bus ${busNumber}</h3><p>Latitude: ${latitude}, Longitude: ${longitude}</p>`);
+
+            busMarker.setPopup(popup);
+
+            busMarkers[busNumber] = busMarker;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Bus Tracking</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="status-message"></div>
+
+    <script>
+        mapboxgl.accessToken = '{{ mapbox_access_token }}'; // Use the Mapbox access token from the context
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [21.390573940382207, 42.49140315960131],
+            zoom: 12
+        });
+
+        const busMarkers = {};
+
+        // Example bus location coordinates
+        const exampleBusLocation = {
+            busNumber: 'ExampleBus',
+            latitude: 42.49140315960131,
+            longitude: 21.390573940382207
+        };
+
+        // Call updateBusLocation with the example bus location
+        updateBusLocation(exampleBusLocation);
+
+        function updateBusLocation(busLocation) {
+            const { busNumber, latitude, longitude } = busLocation;
+
+            // Update the map center to the bus location
+            map.setCenter([longitude, latitude]);
+
+            // Remove previous marker if exists
+            if (busMarkers[busNumber]) {
+                busMarkers[busNumber].remove();
+            }
+
+            // Add a marker at the bus location
+            const busMarker = new mapboxgl.Marker({ color: '#FF5733' })
+                .setLngLat([longitude, latitude])
+                .addTo(map);
+
+            const popup = new mapboxgl.Popup({ offset: 25 })
+                .setHTML(`<h3>Bus ${busNumber}</h3><p>Latitude: ${latitude}, Longitude: ${longitude}</p>`);
+
+            busMarker.setPopup(popup);
+
+            busMarkers[busNumber] = busMarker;
+        }
+    </script>
+</body>
+</html>

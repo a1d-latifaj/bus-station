@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Email Verification</title>
+</head>
+
+<body>
+    <h2>Email Verification</h2>
+    <form id="verifyEmailForm">
+        <input type="text" id="verification_code" placeholder="Verification Code" required><br>
+        <button type="button" id="verifyButton">Verify Email</button>
+    </form>
+
+    <script>
+        // Function to get CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Define the verifyEmail function
+        function verifyEmail() {
+            const verificationCode = document.getElementById('verification_code').value;
+
+            // Get CSRF token
+            const csrftoken = getCookie('csrftoken');
+
+            fetch('/api/verify-email/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken,
+                },
+                body: JSON.stringify({
+                    token: verificationCode, // Send only the verification token
+                }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Failed to verify email');
+            })
+            .then(data => {
+                console.log('Email verified:', data);
+                // Redirect to profile information step
+                window.location.href = '/profile-info/';
+            })
+            .catch(error => {
+                console.error('Verification error:', error.message);
+            });
+        }
+
+        // Attach event listener to the button
+        document.getElementById('verifyButton').addEventListener('click', verifyEmail);
+    </script>
+</body>
+
+</html>
