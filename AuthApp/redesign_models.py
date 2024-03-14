@@ -91,6 +91,20 @@ class BackupMethod(models.Model):
         return self.title
 
 # 2FA: aidlatifaj, True, 2 (E-Mail),
+"""
+    2FA {
+        1: {
+            user: aidlatifaj,
+            is_enabled: True,
+            backup_method: SMS
+        }
+        2: {
+            user: aidlatifaj,
+            is_enabled: True,
+            backup_method: E-Mail
+        }
+    }
+"""
 class _2FA(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='two_factor_settings')
     is_enabled = models.BooleanField(default=False)
@@ -100,33 +114,85 @@ class _2FA(models.Model):
         return f"Two-Factor Authentication Settings for {self.user}"
 
 # RecoveryCode: aidlatifaj, c47cecbf41f45672bbad8510f285868791ad6ca7f90185309298108ee0b98163
+"""
+    RecoveryCode {
+        _2fa: {
+            user: aidlatifaj,
+            is_enabled: True,
+            backup_method: SMS
+        }
+        code: c47cecbf41f45672bbad8510f285868791ad6ca7f90185309298108ee0b98163
+    }
+"""
 class RecoveryCode(models.Model):
-    user_2fa = models.OneToOneField(_2FA, on_delete=models.CASCADE, related_name='recovery_code')
+    _2fa = models.OneToOneField(_2FA, on_delete=models.CASCADE, related_name='recovery_code')
     code = models.CharField(max_length=255)
 
     def __str__(self):
         return f"Recovery Code for {_2FA.user}: {self.code}"
 
 # Tokens: aidlatifaj, 6512-8542, 03/14/2024 17:00, 03/14/2024 17:05, True, 2FA
+"""
+    Tokens {
+        token1 {
+            user: aidlatifaj,
+            token: 6512-8542,
+            created_at: 03/14/2024 17:00, 
+            expired_at: 03/14/2024 17:05,
+            is_active: True
+            used_for: 2FA
+        }
+    }
+"""
 class Tokens(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     token = models.CharField(max_length=8)
     created_at = models.DateTimeField(default=timezone.now)    
-    expire_at = models.DateTimeField(default=timezone.now)
+    expired_at = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     used_for = models.CharField(max_length=20, choices=[('reset_password', 'Reset Password'), ('verify_account', 'Verify Account'), ('2fa', '2FA'), ('other', 'Other')])
 
 
 
 # For Addresses
+"""
+    Countries {
+        country: Kosovo,
+        svg_code: <svg **********>
+    }
+"""
 class Countries(models.Model):
     country = models.CharField(max_length=30)
     svg_code = models.TextField()
 
+
+"""
+    Cities {
+        city: Gjilan,
+        country: 1 (Kosovo)
+    }
+"""
 class Cities(models.Model):
     city = models.CharField(max_length=30)
     country = models.ForeignKey(Countries, on_delete=models.CASCADE, related_name='cities')
 
+
+# For Addresses
+"""
+    Addresses {
+        street_address_1: Vellezerit Frasheri
+        street_address_2: Null,
+        house_number: 58,
+        zip_code: 60000,
+        city: 1 {
+            city: Gjilan,
+            country: 1 {
+                country: Kosovo,
+                svg_code: <svg ********>
+            }
+        }
+    }
+"""
 class Addresses(models.Model):
     street_address_1 = models.CharField(max_length=50)
     street_address_2 = models.CharField(max_length=50)
@@ -134,6 +200,27 @@ class Addresses(models.Model):
     zip_code = models.CharField(max_length=5)
     city = models.ForeignKey(Cities, on_delete=models.CASCADE, related_name='addresses')
 
+
+#Coordinates for addresses
+"""
+    Coordinates {
+        address: 1 {
+            street_address_1: Vellezerit Frasheri
+            street_address_2: Null,
+            house_number: 58,
+            zip_code: 60000,
+            city: 1 {
+                city: Gjilan,
+                country: 1 {
+                    country: Kosovo,
+                    svg_code: <svg ********>
+                }
+            }
+        }
+        latitude: 25.51545151
+        longitude: -41.52314875
+    }
+"""
 class Coordinates(models.Model):
     address = models.OneToOneField(Addresses, on_delete=models.CASCADE, related_name='coordinates')
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
