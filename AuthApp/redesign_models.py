@@ -42,7 +42,28 @@ class Users(AbstractUser):
     def __str__(self):
         return self.email
 
-# UsersProfile: aidlatifaj, profile_pictures/aidlatifaj.jpg, +38349867737
+
+""" 
+    UsersProfile: {
+        user: aidlatifaj, 
+        profile_picture: profile_pictures/aidlatifaj.jpg, 
+        phone_number: +38349867737,
+        date_of_birth: 23/09/1994,
+        bio: Lorem ipsum dolor,
+        address: 2 {
+            street_address_1: Vellezerit Frasheri,
+            street_address_2: NULL,
+            house_number: 58,
+            zip_code: 60000,
+            city: 6 {
+                city: Gjilan,
+                country: 2 {
+                    country: Kosovo
+                }
+            }
+        }
+    }
+"""
 class UsersProfile(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='profile')
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
@@ -58,6 +79,11 @@ class UsersProfile(models.Model):
 
 
 # Method: SMS, E-Mail, Auth App
+"""
+    BackupMethod {
+        title: SMS
+    }
+"""
 class BackupMethod(models.Model):
     title = models.CharField(max_length=50)
 
