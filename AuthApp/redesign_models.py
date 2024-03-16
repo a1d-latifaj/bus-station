@@ -10,6 +10,10 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
+        extra_fields.setdefault('is_passenger', True)  # Set is_passenger to True by default
+        extra_fields.setdefault('is_admin', False)  # Set other fields to False by default
+        extra_fields.setdefault('is_bus_company_management', False)
+
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
@@ -50,14 +54,14 @@ class Users(AbstractUser):
         phone_number: +38349867737,
         date_of_birth: 23/09/1994,
         bio: Lorem ipsum dolor,
-        address: 2 {
+        address: {
             street_address_1: Vellezerit Frasheri,
             street_address_2: NULL,
             house_number: 58,
             zip_code: 60000,
-            city: 6 {
+            city: {
                 city: Gjilan,
-                country: 2 {
+                country: {
                     country: Kosovo
                 }
             }
@@ -86,6 +90,7 @@ class UsersProfile(models.Model):
 """
 class BackupMethod(models.Model):
     title = models.CharField(max_length=50)
+    description = models.TextField(blank=True, null=True)  # Shtimi i një përshkrimi për metodat e kopjeve të rezervuara
 
     def __str__(self):
         return self.title
@@ -109,9 +114,11 @@ class _2FA(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='two_factor_settings')
     is_enabled = models.BooleanField(default=False)
     backup_method = models.ForeignKey(BackupMethod, on_delete=models.SET_NULL, blank=True, null=True)
+    activation_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Two-Factor Authentication Settings for {self.user}"
+
 
 # RecoveryCode: aidlatifaj, c47cecbf41f45672bbad8510f285868791ad6ca7f90185309298108ee0b98163
 """
@@ -130,6 +137,7 @@ class RecoveryCode(models.Model):
 
     def __str__(self):
         return f"Recovery Code for {_2FA.user}: {self.code}"
+
 
 # Tokens: aidlatifaj, 6512-8542, 03/14/2024 17:00, 03/14/2024 17:05, True, 2FA
 """
@@ -153,8 +161,7 @@ class Tokens(models.Model):
     used_for = models.CharField(max_length=20, choices=[('reset_password', 'Reset Password'), ('verify_account', 'Verify Account'), ('2fa', '2FA'), ('other', 'Other')])
 
 
-
-# For Addresses
+# For Countries
 """
     Countries {
         country: Kosovo,
@@ -166,6 +173,7 @@ class Countries(models.Model):
     svg_code = models.TextField()
 
 
+# For Cities
 """
     Cities {
         city: Gjilan,
@@ -204,7 +212,7 @@ class Addresses(models.Model):
 #Coordinates for addresses
 """
     Coordinates {
-        address: 1 {
+        address: {
             street_address_1: Vellezerit Frasheri
             street_address_2: Null,
             house_number: 58,
@@ -227,11 +235,29 @@ class Coordinates(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
 
 # For Stations
+"""
+    Stations {
+        station_name: Stacioni i Autobusëve Gjilan,
+        address: {
+            street_address_1: Vellezerit Frasheri
+            street_address_2: Null,
+            house_number: 58,
+            zip_code: 60000,
+            city: 1 {
+                city: Gjilan,
+                country: 1 {
+                    country: Kosovo,
+                    svg_code: <svg ********>
+                }
+            }
+        }
+    }
+"""
 class Stations(models.Model):
     station_name = models.CharField(max_length=50)
     address = models.OneToOneField(Addresses, on_delete=models.CASCADE, related_name='station')
 
-# For Buses
+# For BusCompanies
 class BusCompanies(models.Model):
     company = models.CharField(max_length=50)
     email = models.EmailField()
@@ -273,3 +299,68 @@ class RouteStops(models.Model):
     station_id = models.ForeignKey(Stations, on_delete=models.CASCADE)
     arrival_time = models.DateTimeField()
     order = models.IntegerField(help_text="Order of the stop in the route")
+
+
+
+
+class Tickets(models.Model):
+    passenger = models.ForeignKey(Users, on_delete=models.CASCADE)
+    route = models.ForeignKey(BusRoutes, on_delete=models.CASCADE)
+    ticket_number = models.CharField(max_length=50, unique=True)
+    seat_number = models.PositiveIntegerField(blank=True, null=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    purchase_date = models.DateTimeField(auto_now_add=True)
+    qr_code = models.ImageField(upload_to='qr_codes/', blank=True)  # Optional QR code image field
+
+    def __str__(self):
+        return f"Ticket #{self.ticket_number} for {self.passenger.email} (Route: {self.route})"
+
+
+class Bookings(models.Model):
+    passenger = models.ForeignKey(Users, on_delete=models.CASCADE)
+    route = models.ForeignKey(BusRoutes, on_delete=models.CASCADE)
+    booking_date = models.DateTimeField(auto_now_add=True)
+    booking_status = models.CharField(max_length=20, choices=[
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('canceled', 'Canceled'),
+    ], default='pending')
+
+    def __str__(self):
+        return f"Booking #{self.id} for {self.passenger.email} (Route: {self.route}) - {self.booking_status}"
+
+
+class Payments(models.Model):
+    booking = models.ForeignKey(Bookings, on_delete=models.CASCADE)
+    payment_method = models.CharField(max_length=50)
+    payment_date = models.DateTimeField(auto_now_add=True)
+    transaction_id = models.CharField(max_length=100, blank=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"Payment for Booking #{self.booking.id} - {self.payment_method}: ${self.amount}"
+
+
+# Optional additional tables
+
+class Discounts(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+    discount_type = models.CharField(max_length=20, choices=[
+        ('percentage', 'Percentage'),
+        ('fixed_amount', 'Fixed Amount'),
+    ])
+    value = models.DecimalField(max_digits=5, decimal_places=2)
+    expiry_date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Discount Code: {self.code} - {self.discount_type}: {self.value}"
+
+
+class Reviews(models.Model):
+    passenger = models.ForeignKey(Users, on_delete=models.CASCADE)
+    route = models.ForeignKey(BusRoutes, on_delete=models.CASCADE)
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
+    review = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"Review for Route {self.route} by {self.passenger.email} - Rating: {self.rating}"
