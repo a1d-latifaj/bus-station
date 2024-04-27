@@ -16,6 +16,9 @@ COPY . /code/
 
 RUN addgroup --system app && adduser --system --ingroup app aidlatifaj
 
+# Add user to sudo group
+RUN adduser aidlatifaj sudo
+
 RUN id aidlatifaj && groups aidlatifaj
 
 RUN mkdir -p /staticfiles /media

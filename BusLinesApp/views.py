@@ -103,7 +103,7 @@ def get_bus_route_and_locations(request, route_id):
         return JsonResponse({'error': 'Bus route not found'}, status=404)
 
 def calculate_direct_driving_distance(start_station, end_station):
-    access_token = 'pk.eyJ1IjoiYWlkbGF0aWZhaiIsImEiOiJjbHNoamd2ZTExajUzMmttaGIzNWcyYW5vIn0.mFt8U7wu4jJTf1r7HD5Edw'
+    access_token = 'pk.eyJ1IjoiYWlkbGF0aWZhajk0IiwiYSI6ImNsdmlscXpndzFndjUyaXBlYzhqZHRiYXQifQ.8QsQMPqAZUFXGI4jh1Dmsg'
     start_coordinates = f"{start_station.longitude},{start_station.latitude}"
     end_coordinates = f"{end_station.longitude},{end_station.latitude}"
     
