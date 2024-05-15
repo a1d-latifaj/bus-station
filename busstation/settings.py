@@ -45,8 +45,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'channels',
-    'django.contrib.gis',
+    # 'django.contrib.gis',
+    # 'tailwind',
+    # 'theme',
+    # 'django_browser_reload',
 ]
+
+TAILWIND_APP_NAME = 'theme'
+NPM_BIN_PATH = "/usr/bin/npm"
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
@@ -88,6 +94,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'busstation.urls'
@@ -133,7 +140,7 @@ import os
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DATABASE_NAME', 'busstation'),
         'USER': os.getenv('DATABASE_USER', 'postgres'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'test'),
@@ -141,6 +148,8 @@ DATABASES = {
         'PORT': os.getenv('DATABASE_PORT', 5432),
     }
 }
+
+
 
 
 # GDAL settings

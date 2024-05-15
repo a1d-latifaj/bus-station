@@ -10,9 +10,9 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
-        extra_fields.setdefault('is_passenger', True)  # Set is_passenger to True by default
-        extra_fields.setdefault('is_admin', False)  # Set other fields to False by default
-        extra_fields.setdefault('is_bus_company_management', False)
+        extra_fields.setdefault('is_passenger', True)  #is_passanger == True (default)
+        extra_fields.setdefault('is_admin', False)     #is_admin == False (default)
+        extra_fields.setdefault('is_bus_company_management', False) #is_bus_company_management == False (default)
 
         user = self.model(email=email, **extra_fields)
         user.set_password(password)

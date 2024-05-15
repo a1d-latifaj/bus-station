@@ -1,4 +1,3 @@
-# serializers.py
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from .models import UserProfile, Address, VerificationToken, Country, City
@@ -14,28 +13,29 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
 
     def validate(self, data):
+        if 'password1' not in data or 'password2' not in data:
+            raise serializers.ValidationError("Both password1 and password2 are required.")
         if data['password1'] != data['password2']:
-            raise serializers.ValidationError({"password2": "Password fields didn't match."})
+            raise serializers.ValidationError("Password fields didn't match.")
         return data
 
     def create(self, validated_data):
         user = User.objects.create_user(
-            email=validated_data['email'],
-            password=validated_data['password1'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-            is_active=False,  # Set is_active to False initially
+            email=validated_data['email'],
+            password=validated_data['password1'],
         )
         return user
+
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ['profile_picture']  # Add other fields as needed
+        fields = ['profile_picture'] 
 
     def update(self, instance, validated_data):
         instance.profile_picture = validated_data.get('profile_picture', instance.profile_picture)
-        # Update other fields as necessary
         instance.save()
         return instance
 

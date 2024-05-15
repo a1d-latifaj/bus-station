@@ -5,9 +5,11 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /code
 
+
 RUN apt-get update && apt-get install -y \
     binutils libproj-dev gdal-bin libgdal-dev libgeos-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* 
+    
 
 COPY requirements.txt /code/
 RUN pip install --no-cache-dir -r requirements.txt
@@ -15,17 +17,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /code/
 
 RUN addgroup --system app && adduser --system --ingroup app aidlatifaj
-
-# Add user to sudo group
-RUN adduser aidlatifaj sudo
-
 RUN id aidlatifaj && groups aidlatifaj
 
-RUN mkdir -p /staticfiles /media
+RUN mkdir -p /staticfiles /media /nonexistent
+RUN mkdir -p /etc/sudoers.d && echo "aidlatifaj ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/aidlatifaj
 
-RUN chown -R aidlatifaj:app /staticfiles /media
+RUN chown -R aidlatifaj:app /staticfiles /media /nonexistent /code
 
-RUN chown -R aidlatifaj:app /code
 
 USER aidlatifaj
 

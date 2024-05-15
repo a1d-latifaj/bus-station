@@ -9,7 +9,7 @@ class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
     class Meta:
-        model = Users  # Update the model reference
+        model = Users
         fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
 
 class UserProfileForm(forms.ModelForm):

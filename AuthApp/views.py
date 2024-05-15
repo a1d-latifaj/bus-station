@@ -136,8 +136,9 @@ from rest_framework import status
 from .serializers import UserRegistrationSerializer
 from .models import Users, VerificationToken
 from .helpers import generate_verification_code, send_verification_email
-
-from rest_framework.permissions import AllowAny  # Import the AllowAny permission class
+from rest_framework.parsers import JSONParser, FormParser
+from rest_framework.decorators import parser_classes
+from rest_framework.permissions import AllowAny 
 
 class RegisterAPIView(APIView):
     permission_classes = [AllowAny]
@@ -145,25 +146,26 @@ class RegisterAPIView(APIView):
     def post(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.save(is_active=False)  # Set is_active to False initially
+            user = serializer.save(is_active=False)  
             verification_code = generate_verification_code()
             send_verification_email(user.email, verification_code)
             VerificationToken.objects.create(user=user, token=verification_code)
             return Response({"message": "User registered. Please verify your email."}, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 
 class VerifyEmailAPIView(APIView):
-    permission_classes = [AllowAny]  # Set permission_classes to AllowAny for the VerifyEmailAPIView
+    permission_classes = [AllowAny]  
 
     def post(self, request):
         token = request.data.get('token')
         try:
             verification_token = VerificationToken.objects.get(token=token, is_active=True)
             user = verification_token.user
-            # Assuming you have a field to mark the user as active or something similar
-            user.is_active = True  # Activate the user or mark email as verified
+            user.is_active = True 
             user.save()
 
             verification_token.is_active = False
