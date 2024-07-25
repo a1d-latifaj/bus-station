@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from .models import UserProfile, Address, VerificationToken, Country, City
 
+
 User = get_user_model()
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -14,7 +15,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         if 'password1' not in data or 'password2' not in data:
-            raise serializers.ValidationError("Both password1 and password2 are required.")
+            raise serializers.ValidationError("Password and Verify Password are required.")
         if data['password1'] != data['password2']:
             raise serializers.ValidationError("Password fields didn't match.")
         return data

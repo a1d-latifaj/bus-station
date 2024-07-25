@@ -46,7 +46,6 @@ def register_step2(request):
         if code == verification_token.token:
             return redirect('register_step3')
         else:
-            # Handle incorrect verification code
             return redirect('verification_failed')
     return render(request, 'register_step2.html')
 
@@ -60,9 +59,8 @@ import uuid
 
 @login_required
 def register_step3(request):
-    user = request.user  # Get the current user
+    user = request.user
     if request.method == 'POST':
-        # Check if the user already has a profile
         if hasattr(user, 'profile'):
             profile_form = UserProfileForm(request.POST, request.FILES, instance=user.profile)
         else:
@@ -72,7 +70,7 @@ def register_step3(request):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-            return redirect('register_step4')  # Redirect to the next step
+            return redirect('register_step4')
     else:
         if hasattr(user, 'profile'):
             profile_form = UserProfileForm(instance=user.profile)

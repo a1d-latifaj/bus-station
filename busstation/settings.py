@@ -33,6 +33,7 @@ INTERNAL_IPS = ['127.0.0.1', 'localhost', '::1', '192.168.178.54']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,13 +47,21 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'channels',
     # 'django.contrib.gis',
-    # 'tailwind',
-    # 'theme',
-    # 'django_browser_reload',
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
 
 TAILWIND_APP_NAME = 'theme'
-NPM_BIN_PATH = "/usr/bin/npm"
+
+
+# Windows
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+
+# Docker
+# NPM_BIN_PATH = "/usr/bin/npm"
+
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
@@ -86,6 +95,9 @@ CHANNEL_LAYERS = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -94,7 +106,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    # "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
 ]
 
 ROOT_URLCONF = 'busstation.urls'
@@ -123,31 +140,31 @@ MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYWlkbGF0aWZhaiIsImEiOiJjbHNoamd2ZTExajUzMmttaG
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'busstation',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'sql_mode': 'traditional',
-#         },
-#     }
-# }
-import os
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME', 'busstation'),
-        'USER': os.getenv('DATABASE_USER', 'postgres'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'test'),
-        'HOST': os.getenv('DATABASE_HOST', 'db'),
-        'PORT': os.getenv('DATABASE_PORT', 5432),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'busstation',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
     }
 }
+import os
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DATABASE_NAME', 'busstation'),
+#         'USER': os.getenv('DATABASE_USER', 'postgres'),
+#         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'test'),
+#         'HOST': os.getenv('DATABASE_HOST', 'db'),
+#         'PORT': os.getenv('DATABASE_PORT', 5432),
+#     }
+# }
 
 
 

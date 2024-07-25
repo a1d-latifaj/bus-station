@@ -1,68 +1,114 @@
+{% load static tailwind_tags %}
+{% load django_browser_reload %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-</head>
-<body>
-    <h2>Register</h2>
-    <form id="registerForm">
-        <input type="email" id="email" name="email" placeholder="Email" required><br>
-        <input type="text" id="first_name" name="first_name" placeholder="First Name" required><br>
-        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required><br>
-        <input type="password" id="password1" name="password1" placeholder="Password" required><br>
-        <input type="password" id="password2" name="password2" placeholder="Confirm Password" required><br>
-        <button type="button" onclick="submitForm()">Register</button>
-    </form>
+    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
+
 
     <script>
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('registration-form');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevents default form submission
+                
+                const password1 = document.getElementById('password').value;
+                const password2 = document.getElementById('confirm-password').value;
+                
+                if (password1 !== password2) {
+                    alert("Passwords do not match.");
+                    return;
                 }
-            }
-            return cookieValue;
-        }
-
-        function submitForm() {
-            const formData = {
-                email: document.getElementById('email').value,
-                first_name: document.getElementById('first_name').value,
-                last_name: document.getElementById('last_name').value,
-                password1: document.getElementById('password1').value,
-                password2: document.getElementById('password2').value
-            };
-
-            fetch('/api/register/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token in request header
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // Redirect or handle next step here, for example:
-                window.location.href = '/verify-email/';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
+                
+                const formData = new FormData(form);
+                
+                fetch('http://127.0.0.1:8000/api/register/', { 
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json().then(data => ({ status: response.status, body: data })))
+                .then(data => {
+                    if (data.status === 201) {
+                        alert(data.body.message); // Display success message
+                    } else {
+                        alert("An error occurred: " + JSON.stringify(data.body)); // Display error message
+                        console.error('Error:', data.body);
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                    alert("An error occurred.");
+                });
             });
-        }
-
-        // Prevent the default form submission to attach the CSRF token
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm();
         });
     </script>
+</head>
+<body>
+<div class="grid min-h-screen w-full grid-cols-1 lg:grid-cols-2">
+  <div class="relative flex items-center justify-center bg-[url('/bus-station.jpg')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-primary"></div>
+    <div class="relative z-10 space-y-4 px-6 text-center text-black md:px-12 lg:text-left">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Welcome to the Bus Station</h1>
+      <p class="text-lg font-medium">
+        <span class="relative inline-block overflow-hidden border-r-4 border-primary-dark animate-typewriter">
+          <span class="absolute inset-0 animate-blink"></span>
+          <span class="block whitespace-nowrap">Plan your journey, book your tickets, and explore the world.</span>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="flex items-center justify-center bg-background px-6 py-12 sm:px-10 md:px-12 lg:px-16">
+    <div class="w-full max-w-md space-y-6">
+      <div class="space-y-2 text-center">
+        <h2 class="text-2xl font-bold tracking-tight">Register</h2>
+        <p class="text-muted-foreground">Create an account to start planning your bus trips.</p>
+      </div>
+      <form id="registration-form" class="space-y-4" method="POST">
+        <div>
+          <label class="text-sm font-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="first-name">
+            First name
+          </label>
+          <input class="flex h-10 w-full rounded-lg border border-mute bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="first-name" name="first_name" placeholder="John" required="" />
+        </div>
+        <div>
+          <label class="text-sm font-body  leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="last-name">
+            Last name
+          </label>
+          <input class="flex h-10 p-2 font-primary w-full rounded-lg border border-primary-dark bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="last-name" name="last_name" placeholder="Doe" required="" />
+        </div>
+        <div>
+          <label class="text-sm font-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">
+            Email
+          </label>
+          <input class="flex h-10 w-full rounded-lg border border-input  bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="email" name="email" placeholder="m@example.com" required="" type="email" />
+        </div>
+        <div>
+          <label class="text-sm font-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="password">
+            Password
+          </label>
+          <input class="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="password" name="password1" required="" type="password" />
+        </div>
+        <div>
+          <label class="text-sm font-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="confirm-password">
+            Confirm Password
+          </label>
+          <input class="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="confirm-password" name="password2" required="" type="password" />
+        </div>
+        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>
