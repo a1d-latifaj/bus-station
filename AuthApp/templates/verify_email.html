@@ -75,7 +75,7 @@
     <div class="flex flex-col min-h-[100dvh]">
         <main class="flex-1">
           <section class="container mx-auto my-12 px-4 md:px-6">
-            <div class="rounded-lg border bg-card shadow-lg text-card-foreground shadow-sm mx-auto max-w-md" data-v0-t="card">
+            <div class="rounded-lg border bg-card shadow-lg text-card-foreground mx-auto max-w-md" data-v0-t="card">
               <div class="flex-col space-y-1.5 p-6 flex items-center justify-center gap-2 border-b pb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -133,28 +133,28 @@
                 </div>
                 <div class="flex justify-center gap-2">
                   <input
-                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border-2 border-input px-2 text-center text-2xl font-bold focus:border-primary focus:outline-none"
+                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border border-primary px-2 text-center text-2xl font-body focus:border-primary focus:outline-none"
                     pattern="[0-9]*"
                     inputmode="numeric"
                     maxlength="1"
                     type="text"
                   />
                   <input
-                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border-2 border-input px-2 text-center text-2xl font-bold focus:border-primary focus:outline-none"
+                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border border-primary px-2 text-center text-2xl font-body focus:border-primary focus:outline-none"
                     pattern="[0-9]*"
                     inputmode="numeric"
                     maxlength="1"
                     type="text"
                   />
                   <input
-                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border-2 border-input px-2 text-center text-2xl font-bold focus:border-primary focus:outline-none"
+                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border border-primary px-2 text-center text-2xl font-body focus:border-primary focus:outline-none"
                     pattern="[0-9]*"
                     inputmode="numeric"
                     maxlength="1"
                     type="text"
                   />
                   <input
-                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border-2 border-input px-2 text-center text-2xl font-bold focus:border-primary focus:outline-none"
+                    class="flex h-10 bg-background py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-12 rounded-md border border-primary px-2 text-center text-2xl font-body focus:border-primary focus:outline-none"
                     pattern="[0-9]*"
                     inputmode="numeric"
                     maxlength="1"
@@ -170,8 +170,19 @@
                     </a>
                   </div>
                 </div>
-                <button class="bg-primary w-full text-white py-2 px-4 rounded-md">Verify</button>
+                <div class="space-y-2">
+                    <p class="text-sm text-muted-foreground">Didn't receive the code? Check your spam folder or</p>
+                    <a class="text-sm text-primary underline" href="#">
+                      Request a new code
+                    </a>
+                  </div>
               </div>
+              <div class="flex items-center p-6">
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 text-white disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                    Verify
+                </button>
+              </div>
+            </div>
             </div>
           </section>
         </main>
